@@ -23,7 +23,7 @@ public class User {
 	public User(UserVO vo) {
 		super();
 		this.id = vo.getId();
-		this.fName = vo.getFname();
+		this.fName = vo.getFName();
 		this.lName = vo.getlName();
 	}
 	public Long getId() {

@@ -3,6 +3,7 @@ package com.manage.vendor.register.service;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,6 +29,26 @@ public class RegistrationService {
 		User user = new User(userVO);
 		userRepository.save(user);
 		return user.getId();
+		
+	}
+	
+	@RequestMapping(path="/getUser/{id}", method=RequestMethod.GET)
+	public UserVO getUser(@PathVariable(value = "id") Long id){
+		User user = userRepository.findOne(id);
+		return new UserVO(user);
+		
+	}
+	
+	@RequestMapping(path="/getAllUser", method=RequestMethod.GET)
+	public Iterable<User> getAllUser(){
+		return userRepository.findAll();
+		
+	}
+	
+	@RequestMapping(path="/deleteUser/{id}", method=RequestMethod.GET)
+	public String deleteUserById(@PathVariable(value = "id") Long id){
+		userRepository.delete(id);
+		return "Deleted";
 		
 	}
 	
