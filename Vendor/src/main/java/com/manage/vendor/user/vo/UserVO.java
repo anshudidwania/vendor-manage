@@ -1,6 +1,5 @@
-package com.manage.vendor.register.vo;
+package com.manage.vendor.user.vo;
 
-import com.manage.vendor.register.entity.User;
 
 public class UserVO {
 	
@@ -9,12 +8,6 @@ public class UserVO {
 	private String lName;
 	
 	public UserVO() {
-	}
-	
-	public UserVO(User user) {
-		this.id = user.getId();
-		this.fName = user.getfName();
-		this.lName = user.getlName();
 	}
 	
 	public UserVO(long incrementAndGet, String format) {
